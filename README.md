@@ -92,5 +92,58 @@ We simplify the `failure` field into two categories:
 | Support       | 84,655     | 18,982    | 103,637 |
 
 
+## 🚀 Future Work
+
+While the current model accurately classifies `Working` vs `Failure`, the next step is to enhance this project to detect the **specific type of failure**, enabling more actionable diagnostics and predictive insights.
+
+### 🔄 Planned Enhancements
+
+#### 🧩 Multi-Class Failure Classification
+Instead of binary labels (`Working`, `Failure`), the model will be trained to classify individual failure types, such as:
+- Heating Fault
+- Draining Fault
+- Motor Issue
+- Unbalanced Load
+- Others...
+
+This allows technicians and end-users to understand **what exactly went wrong and why**.
+
+#### 📊 Class Distribution Handling
+- Analyze and balance the dataset across various failure types to ensure fair model performance.
+- Apply **oversampling techniques** (e.g., SMOTE) or **class weighting** to handle imbalanced categories.
+
+#### 🔍 Feature Engineering for Specific Fault Patterns
+- Extract statistical and frequency domain features from the **fast stream**:
+  - FFT (Fast Fourier Transform)
+  - RMS (Root Mean Square)
+  - Spectral Entropy
+- Apply **rolling window analysis** to capture how faults evolve over time.
+
+#### 🤖 Advanced Models
+- Explore deep learning architectures:
+  - **1D Convolutional Neural Networks (CNNs)** for vibration signal sequences
+  - **LSTM/GRU** for capturing temporal dependencies in current and power profiles
+- Compare with classical models such as:
+  - **XGBoost**
+  - **LightGBM**
+  - **Random Forests**
+
+#### 📈 Real-Time Fault Type Prediction
+- Implement a pipeline that:
+  - Streams live sensor input (slow/fast streams)
+  - Classifies fault types in real-time
+  - Pushes **alerts** or **maintenance recommendations** to end-users or technicians
+
+#### 🌐 Deployable Dashboard
+- Build an interactive web dashboard to visualize:
+  - Current device state
+  - Detected fault type
+  - Model confidence score
+  - Recommended actions
+
+#### 🧪 Model Explainability
+- Integrate **SHAP** or **LIME** to explain model predictions
+- Provide transparent and trustworthy AI-driven fault diagnostics
+
 
 
